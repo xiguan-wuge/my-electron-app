@@ -8,12 +8,20 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, '../preload.js')
     }
   })
   // 你通过调用 createWindow方法，在 electron app 第一次被初始化时创建了一个新的窗口。
   // mainWindow.loadFile('index.html')
-  mainWindow.loadFile(path.join(__dirname, 'dist/index.html'))
+  // 区分dev和prod环境
+  if(app.isPackaged) {
+    // 打包了就加载打包后的文件
+    mainWindow.loadFile(path.join(__dirname, './dist-electron/index.html'))
+  } else {
+    // 本地启用的Vue项目路径
+    const url = 'http://localhost:5173/'
+    mainWindow.loadURL(url)
+  }
 
 
   // 打开开发工具

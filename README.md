@@ -1,6 +1,7 @@
 # 口袋外卖
 
 ## 技术栈
+- Electron
 - Vue3
 - TS
 - Vite
@@ -9,7 +10,12 @@
 ## 运行
 
 ```
-pnpm i
+npm i
 
-pnpm run dev
+npm run dev
+```
+
+## 打包
+```
+npm run build:electron
 ```
