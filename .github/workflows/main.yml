@@ -1,0 +1,36 @@
+name: Build and Deploy # 定义工作流名称
+on: # 监听 main 分支上的 push \ pull_request 事件
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs: # 定义工作流中的工作
+  build-and-deploy:
+    runs-on: ubuntu-latest # 构建环境使用 ubuntu
+    steps:         
+      - name: Checkout # 获取源码
+        uses: actions/checkout@v3 
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm # 安装pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+
+      - name: Install and Build # 下载依赖 打包项目
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Deploy # 将打包内容发布到 github page
+        uses: JamesIves/github-pages-deploy-action@v4 # 使用别人写好的 actions
+        with:  # 自定义环境变量
+          BRANCH: gh-pages # github page指定分支, 需要在对应仓库创建同名分支，并配置该分支作为项目page页
+          FOLDER: dist # build后生成的目录
+          clean: true
+          # ACCESS_TOKEN: ${{ secrets.VITE_PROJECT_SECRET }} #  secret 名称
+          REPOSITORY_NAME: xiguan-wuge/xiguan-wuge.github.io # 这是我的 github page 仓库
+          TARGET_FOLDER: waimai-front # 打包的文件将放到静态服务器
