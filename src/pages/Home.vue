@@ -5,8 +5,8 @@
     </header>
     <main>
       <aside class="nav">
-        <p class="nav-title flex-center">订餐需知</p>
-        <ul class="nav-list">
+        <p class="nav-title flex-center cursor">订餐需知</p>
+        <ul class="nav-list cursor">
           <li
             class="nav-item flex-center"
             :class="{ 'nav-item-active': nav.key === curNavKey }"
@@ -17,7 +17,7 @@
             {{ nav.name }}
           </li>
         </ul>
-        <div class="nav-feedback" @click="goFeedback">
+        <div class="nav-feedback cursor" @click="goFeedback">
           <van-icon name="chat-o" color="#F19029" size="20" />
           <p>意见反馈</p>
         </div>
@@ -26,7 +26,7 @@
         <div class="food" v-for="foodType in foodList" :key="foodType.key">
           <p class="food-title">{{ foodType.title }}</p>
           <div
-            class="food-detail van-hairline--bottom"
+            class="food-detail cursor van-hairline--bottom"
             v-for="(food, index) in foodType.list"
             :key="index"
             @click="goDetail(food)"

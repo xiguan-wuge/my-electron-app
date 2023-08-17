@@ -15,7 +15,7 @@
     </div>
     <div class="time van-hairline--bottom van-hairline--top">
       <span class="time-prompt">取餐时间</span>
-      <span class="time-select" @click="toggleShowPicker">
+      <span class="time-select cursor" @click="toggleShowPicker">
         <span v-if="timeValue" class="time-selected">{{ timeValue }}</span>
         <span v-else>
           选择取餐时间

@@ -11,8 +11,8 @@
           <img :src="banner" alt="" class="banner-img" />
         </van-swipe-item>
       </van-swipe>
-      <div class="back" @click="back"></div>
-      <div class="order" @click="goOrder"></div>
+      <div class="back cursor" @click="back"></div>
+      <div class="order cursor" @click="goOrder"></div>
     </header>
     <main>
       <section class="food-detail">
@@ -20,7 +20,7 @@
         <p class="prompt">{{ foodDetail.propmt }}</p>
         <p class="count">剩余{{ foodDetail.count }}</p>
         <p class="price">￥{{ foodDetail.praise }}</p>
-        <div class="praise" @click="togglePraise">
+        <div class="praise cursor" @click="togglePraise">
           <img
             src="../assets/images/icons/details_icon_good_sel.png"
             alt=""
@@ -35,7 +35,7 @@
         </div>
         <div class="add-cart">
           <div
-            class="add flex-center"
+            class="add cursor flex-center"
             v-if="!userCartCount"
             @click="handleStepper(foodDetail, 1)"
           >
@@ -63,7 +63,7 @@
           <span class="comment-title-left"
             >评论&nbsp;({{ foodDetail.comments.length }}条)</span
           >
-          <span class="comments-add" @click="goComment">我要评论</span>
+          <span class="comments-add cursor" @click="goComment">我要评论</span>
         </p>
         <div class="comment-list">
           <div

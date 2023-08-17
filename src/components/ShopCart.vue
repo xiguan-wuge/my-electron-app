@@ -2,7 +2,7 @@
   <div class="shopcart">
     <div class="cart-content">
       <div class="cart" @click="toggleCart">
-        <div class="icon" :class="{ 'icon-nor': !cartCount }">
+        <div class="icon cursor" :class="{ 'icon-nor': !cartCount }">
           <span class="count" v-show="cartCount">{{ cartCount }}</span>
         </div>
         <p class="price">
@@ -10,7 +10,7 @@
           <span class="price-nor" v-else>购物车是空的</span>
         </p>
       </div>
-      <div class="handle" :class="{'handle-multi': !showSingle}" v-if="cartCount">
+      <div class="handle cursor" :class="{'handle-multi': !showSingle}" v-if="cartCount">
         <div class="single flex-center" v-if="showSingle" @click="handle">{{ handleText }}</div>
         <div class="multi" v-else>
           <div class="multi-item flex-center" @click="revoke">撤销</div>

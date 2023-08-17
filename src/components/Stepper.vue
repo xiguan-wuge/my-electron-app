@@ -1,7 +1,7 @@
 <template>
   <div class="stepper flex-center">
     <div
-      class="sub flex-center"
+      class="sub cursor flex-center"
       :class="{ dis: subDisable }"
       v-show="modelValue"
       @click.stop="handClick(false)"
@@ -10,7 +10,7 @@
     </div>
     <div class="num" v-show="modelValue">{{ modelValue }}</div>
     <div
-      class="add flex-center"
+      class="add cursor flex-center"
       :class="{ dis: addDisable }"
       @click.stop="handClick(true)"
     >
